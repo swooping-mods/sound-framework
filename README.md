@@ -1,5 +1,7 @@
 # Sound Framework
 
+<img src="media/icon.png" alt="Sound Framework icon" width="128" height="128">
+
 Reusable spatial sound cues for modded items and companions.
 
 ## Install
