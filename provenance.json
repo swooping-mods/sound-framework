@@ -1,0 +1,92 @@
+{
+  "schema": "mod-source-hashes/v1",
+  "source_files": {
+    "mods/sound-framework/assets_registry.h": {
+      "export_sha256": "641639424e6bf71bc754b0543eb44b0d63babc811a1a6676cc41258ef3830f90"
+    },
+    "mods/sound-framework/assets_runtime.h": {
+      "export_sha256": "0a5af57a08ab5aa2f01a2eaf41c49548c4a91fb4f623d9297c3b31459fb66b44"
+    },
+    "mods/sound-framework/clips.h": {
+      "export_sha256": "cfa3f05d06729789b23de9b8e9ee485dba52f23ee0586cfa69ba1a3d0e1ebb9b"
+    },
+    "mods/sound-framework/emit.h": {
+      "export_sha256": "9289cddf0f9ca872478795bc5141b0fce8e8a83c88244bb49616afa804b0055f"
+    },
+    "mods/sound-framework/mod.c": {
+      "export_sha256": "f08fd541c239ad08529a29de66110c0d4c38a06880785e3983f6aa0e1441ab80"
+    },
+    "mods/sound-framework/mod.json": {
+      "export_sha256": "2f20911604391b36bd2f87931c230894be0711f8981ac84a808e0d146b8cca7c"
+    },
+    "mods/sound-framework/preparation.h": {
+      "export_sha256": "e6bdbcdce80f9fa86183615baee98faf329c5fdff92f9b13c019856d8761706e"
+    },
+    "mods/sound-framework/reflection.h": {
+      "export_sha256": "6854281824792666c6f819279f9f480121c920eb263e1a13b87f212c929adbbe"
+    },
+    "mods/sound-framework/registry.h": {
+      "export_sha256": "ecc1cddb1f7c3c894f6029c9498f242e863682385dccedf91fbfb0bbd095cc84"
+    },
+    "mods/sound-framework/sdk/assets.h": {
+      "export_sha256": "dd871aee5b1ba877cd0a9e10e80b3fa028c549ec4801914666b83b63afa60129"
+    },
+    "mods/sound-framework/sdk/client.h": {
+      "export_sha256": "de872effa173678f892680b9ba8804431b379e0ee5e06609f1ca4a1a360b0dd6"
+    },
+    "mods/sound-framework/sdk/preparation.h": {
+      "export_sha256": "7aaeeed22da32bbd755224dd13778d2e8c33415ddf5688c30fc1c688009f6d76"
+    },
+    "mods/sound-framework/sdk/preparation_client.h": {
+      "export_sha256": "1128bd21b9afccda91bccd14113ee0a1bb65f92f7f9c4051d018e0cb3ef119ed"
+    },
+    "mods/sound-framework/sdk/sound.h": {
+      "export_sha256": "9f7ea75cc11b730018b676bd2e0364cb402bf94daa0410df181af00405af0164"
+    },
+    "mods/sound-framework/unit_driver.h": {
+      "export_sha256": "5c3cd2ba25af79a1f2c0dd413cdc34e1610f809854ca944bebf44dd1186b79f9"
+    },
+    "mods/sound-framework/voices.h": {
+      "export_sha256": "92a5730fe6703f8486c7b373ca6327926166978be83563eb0ccc033abdd38962"
+    },
+    "mods/sound-framework/world_state.h": {
+      "export_sha256": "2f4c556f8b4127adf96a9fc70f453aac2df0bb714ef38fda2346205f22637380"
+    },
+    "runtime/native/gameplay.h": {
+      "export_sha256": "7676362469a7972f54f9c7304d41d32396b4f81cc9a9f9935983c54b90cb061d"
+    },
+    "runtime/native/hook_context.h": {
+      "export_sha256": "28f6c6502f3b4d6e8ae02c06e60b6d3b7f1b8674d0a5f20ac42664ea3133d016"
+    },
+    "runtime/native/hook_engine.h": {
+      "export_sha256": "2cea82d754c1792bc3eddfba10261c7de7eb0a33316cc5d1aa28a99ee78882df"
+    },
+    "runtime/native/local_actor.h": {
+      "export_sha256": "d16cbfeef20df121d4bffb53b6a0f7da91ee664f070c4a2af0e0da70145b40e5"
+    },
+    "runtime/native/services.h": {
+      "export_sha256": "1178e09c77f30f53bbccbfbacf8771e5faad1cf79753703d90dfd0a1e0fbadeb"
+    },
+    "runtime/native/update_driver.h": {
+      "export_sha256": "3e7b3662eb71956749533e866063ed2debff5e8ec293dd9c944b69bc3fa43fe6"
+    },
+    "runtime/sdk/context.h": {
+      "export_sha256": "6c84145cc761550c4943aa10c52242a538e92243f79a1b20c65b6a4ef9e82605"
+    },
+    "runtime/sdk/hooks.h": {
+      "export_sha256": "7c006f1254dd6a130f56dac499ba8196fb84ee4883443ee4f12d601534df56ec"
+    },
+    "runtime/sdk/services.h": {
+      "export_sha256": "72de584c98cf0ca6367f5decd4416c78fa4eeea44b4b48401d0737a44b2c7a2b"
+    },
+    "runtime/sdk/services_client.h": {
+      "export_sha256": "17f670371f5798457301b14c046daa99632c9685cc2c5f78921c3fe53d095479"
+    },
+    "runtime/sdk/update_driver.h": {
+      "export_sha256": "615ccbd58a34756dd38f4312296badfe7d169392f94f8847bc5fb885bea3efb2"
+    },
+    "runtime/sdk/vehicle_input.h": {
+      "export_sha256": "6af332b456ff9fb74e96a6e963a8cf9627bd51a8edca55f07b6e5a829b9da790"
+    }
+  }
+}

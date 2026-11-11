@@ -1,0 +1,6 @@
+{
+  "schema": "moon-independent-build-spec/v1",
+  "id": "sound-framework",
+  "kind": "native",
+  "entry": "mods/sound-framework/mod.c"
+}
