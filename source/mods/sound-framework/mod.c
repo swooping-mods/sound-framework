@@ -55,34 +55,31 @@ __declspec(dllexport) const MoonSoundPreparation *MoonLab_SoundPreparation_v1(un
 static const MoonSounds ma_api={MA_ABI,sizeof(MoonSounds),ma_register,ma_emit,ma_move,ma_stop_emitter,ma_on_update};
 __declspec(dllexport) const MoonSounds *MoonLab_Sounds_v1(unsigned abi,unsigned size){return abi==MA_ABI&&size==sizeof(MoonSounds)&&__atomic_load_n(&ma_started,__ATOMIC_ACQUIRE)?&ma_api:0;}
 #include "world_state.h"
-static void ma_tick(PTR walker){
-    PTR world=0;field_value(walker,ma_world_field,&world);
-    if(!ma_world_enter(world))return;int ok=1;
-    float dt=dnumber(ma_delta,0,&ok),scale=dnumber(ma_scale,0,&ok);if(!ok)return;
-    unsigned paused=scale<=0;
-    if(paused!=ma_paused){for(unsigned i=0;i<MA_VOICES;i++)if(ma_voices[i].active)call(paused?ma_pause:ma_unpause,dget(ma_voices[i].source),0,&ok);ma_paused=paused;ma_event(paused?"audio-paused":"audio-resumed",0,0);}
-    if(!paused&&dt>0&&dt<1)ma_clock+=dt;
-    PTR settings=call(ma_settings,0,0,&ok);float effects=0;if(settings)field_value(settings,ma_effects,&effects);
-    if(ok&&settings&&ma_finite(effects)&&effects>=0&&effects<=1)ma_effects_gain=effects;
-    if(ma_test&&settings&&ma_test_master){
-        /* Read-only capture diagnostics: never override the player's mix. */
-        float master=0;field_value(settings,ma_test_master,&master);
-        if(ma_finite(master)&&master>=0&&master<=1&&ma_finite(effects)&&effects>=0&&effects<=1){ma_event("mix-settings-ppm",(unsigned)(effects*1000000),(unsigned)(master*1000000));ma_test_master=0;}
-    }
-    for(unsigned i=0;i<MA_VOICES;i++)if(ma_voices[i].active){
-        if(ma_voices[i].until<=ma_clock){ma_voices[i].active=0;continue;}
-        ma_scalar(ma_volume,dget(ma_voices[i].source),ma_voices[i].gain*ma_effects_gain);
-    }
-    return;
+#include "environment.h"
+/* These readers retain the existing pinned bindings. Field reads have no status
+ * in this backend: successful reflection binding remains a qualification gate. */
+static int ma_read_local(void *context,PTR *actor){(void)context;return moon_local_actor_read(actor);}
+static int ma_read_frame(void *context,int *frame){(void)context;int ok=1;*frame=integer(ma_frame,0,&ok);return ok;}
+static int ma_read_world(void *context,PTR actor,PTR *world){(void)context;field_value(actor,ma_world_field,world);return 1;}
+static int ma_read_restoring(void *context,PTR world,unsigned *restoring){(void)context;int ok=1;*restoring=(unsigned)boolean(ma_restore,world,&ok);return ok;}
+static int ma_read_time(void *context,float *delta,float *scale){(void)context;int ok=1;*delta=dnumber(ma_delta,0,&ok);if(!ok)return 0;*scale=dnumber(ma_scale,0,&ok);return ok;}
+static int ma_read_mix(void *context,float *effects,float *master,unsigned *has_master){
+    (void)context;int ok=1;PTR settings=call(ma_settings,0,0,&ok);if(!ok||!settings)return 0;
+    field_value(settings,ma_effects,effects);*has_master=0;
+    if(ma_test&&ma_test_master){field_value(settings,ma_test_master,master);if(ma_finite(*master)&&*master>=0&&*master<=1)*has_master=1;}
+    return 1;
 }
+static const MaEnvironmentReader ma_environment_reader={0,ma_read_local,ma_read_frame,ma_read_world,ma_read_restoring,ma_read_time,ma_read_mix};
+#include "tick.h"
 static int ma_before(int id,Context *c){
     (void)id;if(!__atomic_load_n(&ma_started,__ATOMIC_ACQUIRE))return 0;
     if(!ma_thread)ma_thread=GetCurrentThreadId();if(ma_thread!=GetCurrentThreadId())return 0;
-    PTR local=0;if(!moon_local_actor_read(&local))return 0;
-    if(!local){if(ma_world)ma_end();return 0;}
-    if(local!=(PTR)c->rcx)return 0;
-    int ok=1;int frame=integer(ma_frame,0,&ok);if(!ok||frame==ma_last_frame)return 0;ma_last_frame=frame;
-    ma_tick((PTR)c->rcx);
+    MaEnvironment state={0};
+    int observed=ma_environment_capture(&ma_environment_reader,(PTR)c->rcx,ma_last_frame,&state);
+    if(observed==MA_ENV_NO_ACTOR){if(ma_world)ma_end();return 0;}
+    if(observed!=MA_ENV_READY)return 0;
+    ma_last_frame=state.frame;
+    ma_tick(&state);
     ma_dispatch_updates((PTR)c->rcx);
     return 0;
 }
