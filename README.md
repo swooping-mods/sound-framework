@@ -4,20 +4,11 @@
 
 Reusable spatial sound cues for modded items and companions.
 
-
-<!-- source-only-sync -->
-## Current source candidate
-
-Source version **0.1.3** is saved from workshop revision `ca32bbf79ce0840d5166a232bdb3a9fdcd761254`. The retained installable payload remains **0.1.3** with its original bytes. This source update does not rebuild or requalify that payload. The current source and metadata define the candidate; gameplay, rendered behavior and co-op remain unqualified for rebuilt bytes.
-<!-- /source-only-sync -->
-
 ## Install
 
 Install [Moon Sweepers Mod Loader](https://github.com/swooping-mods/moon-sweepers-mod-loader) first.
 
-Download [sound-framework-0.1.3.msmod](content/sound-framework-0.1.3.msmod), then drag and drop the `.msmod` file onto the [Moon Sweepers Mod Loader](https://github.com/swooping-mods/moon-sweepers-mod-loader) window. You can also use **Add mods…** (older loader builds: **Install mod package**).
-
-Select the mod and its required frameworks, click **Prepare files**, then **Launch**.
+Download [sound-framework-0.1.4.msmod](content/sound-framework-0.1.4.msmod), import it with **Install mod package**, then select the mod and its required frameworks.
 
 ## Controls
 
@@ -25,7 +16,7 @@ Select the mod and its required frameworks, click **Prepare files**, then **Laun
 
 ## Compatibility
 
-Version 0.1.3. Targets the pinned Steam Windows x64 IL2CPP build of Moon Sweepers (Steam app 5335510). On Linux, the game runs through Proton. Experimental: back up saves before using save-affecting mods.
+Version 0.1.4. Targets the pinned Steam Windows x64 IL2CPP build of Moon Sweepers (Steam app 5335510). On Linux, the game runs through Proton. Experimental: back up saves before using save-affecting mods.
 
 ## Build
 

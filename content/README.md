@@ -6,7 +6,7 @@ Reusable spatial sound cues for modded items and companions.
 
 Install [Moon Sweepers Mod Loader](https://github.com/swooping-mods/moon-sweepers-mod-loader) first.
 
-Download [sound-framework-0.1.3.msmod](content/sound-framework-0.1.3.msmod), import it with **Install mod package**, then select the mod and its required frameworks.
+Download [sound-framework-0.1.4.msmod](content/sound-framework-0.1.4.msmod), import it with **Install mod package**, then select the mod and its required frameworks.
 
 ## Controls
 
@@ -14,7 +14,7 @@ Download [sound-framework-0.1.3.msmod](content/sound-framework-0.1.3.msmod), imp
 
 ## Compatibility
 
-Version 0.1.3. Targets the pinned Steam Windows x64 IL2CPP build of Moon Sweepers (Steam app 5335510). On Linux, the game runs through Proton. Experimental: back up saves before using save-affecting mods.
+Version 0.1.4. Targets the pinned Steam Windows x64 IL2CPP build of Moon Sweepers (Steam app 5335510). On Linux, the game runs through Proton. Experimental: back up saves before using save-affecting mods.
 
 ## Build
 

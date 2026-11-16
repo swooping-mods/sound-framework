@@ -1,15 +1,6 @@
 # Sound Framework: behavior and implementation
 
-Describes the retained payload **0.1.3**. The behavior prose describes the retained payload; current candidate source and metadata are identified below. Gameplay qualification is a separate requirement.
-
-
-<!-- source-only-sync -->
-## Current source candidate
-
-Source version **0.1.3** is saved from workshop revision `ca32bbf79ce0840d5166a232bdb3a9fdcd761254`. The retained installable payload remains **0.1.3** with its original bytes. This source update does not rebuild or requalify that payload. The current source and metadata define the candidate; gameplay, rendered behavior and co-op remain unqualified for rebuilt bytes.
-
-The authored behavior and lifecycle descriptions below are retained from the published payload. They are not new qualification evidence for the source candidate. The integration table below follows the current candidate metadata.
-<!-- /source-only-sync -->
+Describes the exported implementation **0.1.4**. The source hashes and packaged module identify this version; verification remains scoped to the checks below.
 
 ## Behavior
 
@@ -42,6 +33,8 @@ The [module metadata](../source/mods/sound-framework/mod.json) owns the version 
 - [preparation.h](../source/mods/sound-framework/preparation.h)
 
 ## Verification boundary
+
+Refresh the shared adapter/header closure used by Squishy Plushie 0.2.1. Preserve the sound and sound-preparation API layouts and verify this exact build in the loaded-world Plushie closure. Native Windows gameplay, other mod combinations, long sessions and real co-op remain separate.
 
 No network sound replication, automatic file decoder or global loudness guarantee. Providers supply valid audio and emitter lifetime; actual audibility, attenuation, device and game-mixer behavior require listening/native checks.
 
